@@ -28,7 +28,6 @@ export default {
 			}
 			return new Response("Not found", { status: 404 });
 		} catch (e: any) {
-			// THIS WILL SEND THE ERROR TO YOU ON TELEGRAM
 			const errorBot = new Bot(env.TELEGRAM_TOKEN);
 			await errorBot.api.sendMessage(env.OWNER_ID, `🚨 *CRASH:*\n${e.message}`, { parse_mode: "Markdown" });
 			return new Response("Error", { status: 500 });
